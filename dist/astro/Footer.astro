@@ -1,0 +1,70 @@
+---
+const links = [
+  {
+    "href": "https://github.com/Agent-Analytics/agent-analytics",
+    "label": "GitHub",
+    "external": true
+  },
+  {
+    "href": "https://docs.agentanalytics.sh",
+    "label": "API Docs"
+  },
+  {
+    "href": "https://blog.agentanalytics.sh",
+    "label": "Blog"
+  },
+  {
+    "href": "https://app.agentanalytics.sh",
+    "label": "Dashboard"
+  },
+  {
+    "href": "https://x.com/analytics_90590",
+    "label": "X",
+    "external": true
+  },
+  {
+    "href": "mailto:contact@agentanalytics.sh",
+    "label": "Contact"
+  },
+  {
+    "href": "mailto:support@agentanalytics.sh",
+    "label": "Support"
+  },
+  {
+    "href": "https://agentanalytics.sh/privacy",
+    "label": "Privacy"
+  },
+  {
+    "href": "https://agentanalytics.sh/terms",
+    "label": "Terms"
+  },
+  {
+    "href": "https://agentanalytics.sh/dpa",
+    "label": "DPA"
+  }
+];
+const copy = "Built for builders who ship fast. Open source under MIT.";
+const logoSrc = "/logo-v2.png";
+const logoAlt = "Agent Analytics";
+---
+
+<footer class="aa-footer" data-aa-impression="footer">
+  <div class="aa-footer__inner">
+    <div class="aa-footer__mark">
+      <img src={logoSrc} alt={logoAlt} />
+    </div>
+    <nav class="aa-footer__links" aria-label="Footer">
+      <a href="https://github.com/Agent-Analytics/agent-analytics" class="aa-footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://docs.agentanalytics.sh" class="aa-footer__link">API Docs</a>
+      <a href="https://blog.agentanalytics.sh" class="aa-footer__link">Blog</a>
+      <a href="https://app.agentanalytics.sh" class="aa-footer__link">Dashboard</a>
+      <a href="https://x.com/analytics_90590" class="aa-footer__link" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="mailto:contact@agentanalytics.sh" class="aa-footer__link">Contact</a>
+      <a href="mailto:support@agentanalytics.sh" class="aa-footer__link">Support</a>
+      <a href="https://agentanalytics.sh/privacy" class="aa-footer__link">Privacy</a>
+      <a href="https://agentanalytics.sh/terms" class="aa-footer__link">Terms</a>
+      <a href="https://agentanalytics.sh/dpa" class="aa-footer__link">DPA</a>
+    </nav>
+    <p class="aa-footer__copy">{copy}</p>
+  </div>
+</footer>

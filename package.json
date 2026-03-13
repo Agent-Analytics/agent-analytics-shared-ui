@@ -1,0 +1,51 @@
+{
+  "name": "@agent-analytics/shared-ui",
+  "version": "0.1.0",
+  "type": "module",
+  "private": false,
+  "description": "Shared UI primitives, tokens, and marketing chrome for Agent Analytics properties.",
+  "keywords": [
+    "design-system",
+    "shared-ui",
+    "theme",
+    "css",
+    "tailwind",
+    "agent-analytics"
+  ],
+  "author": "Agent Analytics <danny@animaapp.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Agent-Analytics/agent-analytics"
+  },
+  "homepage": "https://agentanalytics.sh",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "tokens.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./footer": "./dist/footer.js",
+    "./astro/Footer.astro": "./dist/astro/Footer.astro",
+    "./eleventy/footer.njk": "./dist/eleventy/footer.njk",
+    "./tokens.json": "./tokens.json",
+    "./variables.css": "./dist/variables.css",
+    "./tailwind.css": "./dist/tailwind.css",
+    "./recipes.css": "./dist/recipes.css"
+  },
+  "peerDependencies": {
+    "astro": "^5.0.0 || ^6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build"
+  }
+}
