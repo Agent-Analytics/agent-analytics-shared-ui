@@ -60,7 +60,7 @@ const headerData = {
       "href": "/he/",
       "logoAlt": "Agent Analytics",
       "logoSrc": "/logo-v2.png",
-      "subtitle": "אנליטיקה מותאמת לסוכנים",
+      "subtitle": "אנליטיקה שסוכני AI יכולים לקרוא",
       "title": "AgentAnalytics"
     },
     "links": [

@@ -21,8 +21,8 @@ const footerContentByLocale = {
   },
   he: {
     title: 'Agent Analytics',
-    description: 'אנליטיקה מותאמת לסוכנים עבור בונים שמשחררים מהר.',
-    tagline: 'נבנה עבור בונים שמשחררים מהר. קוד פתוח תחת MIT.',
+    description: 'אנליטיקה שסוכני AI יכולים לקרוא, לנתח ולפעול לפיה.',
+    tagline: 'נבנה למפתחים ולצוותים שמשחררים מהר. קוד פתוח ברישיון MIT.',
     product: 'מוצר',
     compare: 'השוואה',
     company: 'חברה',

@@ -17,7 +17,7 @@ const copy = {
     language: 'Language',
   },
   he: {
-    subtitle: 'אנליטיקה מותאמת לסוכנים',
+    subtitle: 'אנליטיקה שסוכני AI יכולים לקרוא',
     blog: 'בלוג',
     docs: 'תיעוד',
     pricing: 'מחירים',
