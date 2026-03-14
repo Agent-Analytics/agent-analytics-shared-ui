@@ -30,8 +30,10 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./header": "./dist/header.js",
     "./footer": "./dist/footer.js",
     "./astro/Footer.astro": "./dist/astro/Footer.astro",
+    "./eleventy/header.njk": "./dist/eleventy/header.njk",
     "./eleventy/footer.njk": "./dist/eleventy/footer.njk",
     "./tokens.json": "./tokens.json",
     "./variables.css": "./dist/variables.css",

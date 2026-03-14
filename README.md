@@ -8,7 +8,9 @@ Shared UI primitives, design tokens, and site chrome for Agent Analytics propert
 - `@agent-analytics/shared-ui/variables.css`
 - `@agent-analytics/shared-ui/tailwind.css`
 - `@agent-analytics/shared-ui/recipes.css`
+- `@agent-analytics/shared-ui/header`
 - `@agent-analytics/shared-ui/footer`
+- `@agent-analytics/shared-ui/eleventy/header.njk`
 - `@agent-analytics/shared-ui/astro/Footer.astro`
 - `@agent-analytics/shared-ui/eleventy/footer.njk`
 

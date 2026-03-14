@@ -1,20 +1,54 @@
 <footer class="aa-footer" data-aa-impression="footer">
   <div class="aa-footer__inner">
-    <div class="aa-footer__mark">
-      <img src="/logo-v2.png" alt="Agent Analytics">
+    <div class="aa-footer__grid">
+      <div class="aa-footer__brand">
+        <div class="aa-footer__mark">
+          <img src="/logo-v2.png" alt="Agent Analytics">
+        </div>
+        <div class="aa-footer__brand-copy">
+          <h2 class="aa-footer__title">Agent Analytics</h2>
+          <p class="aa-footer__description">Agent-ready analytics for builders who ship fast.</p>
+          <p class="aa-footer__copy">Built for builders who ship fast. Open source under MIT.</p>
+        </div>
+      </div>
+      <nav class="aa-footer__sections" aria-label="Footer">
+      <section class="aa-footer__section">
+        <h3 class="aa-footer__heading">Product</h3>
+        <div class="aa-footer__list">
+          <a href="https://app.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_dashboard'})">Dashboard</a>
+          <a href="https://blog.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_blog'})">Blog</a>
+          <a href="https://docs.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_docs'})">API Docs</a>
+          <a href="https://github.com/Agent-Analytics/agent-analytics" class="aa-footer__link" target="_blank" rel="noopener noreferrer" onclick="window.aa?.track('cta_click',{id:'footer_product_github'})">GitHub</a>
+        </div>
+      </section>
+      <section class="aa-footer__section">
+        <h3 class="aa-footer__heading">Compare</h3>
+        <div class="aa-footer__list">
+          <a href="https://agentanalytics.sh/compare/umami" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_umami'})">vs Umami</a>
+          <a href="https://agentanalytics.sh/compare/mixpanel" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_mixpanel'})">vs Mixpanel</a>
+          <a href="https://agentanalytics.sh/compare/amplitude" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_amplitude'})">vs Amplitude</a>
+          <a href="https://agentanalytics.sh/compare/ga4" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_ga4'})">vs GA4</a>
+          <a href="https://agentanalytics.sh/compare/heap" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_heap'})">vs Heap</a>
+          <a href="https://agentanalytics.sh/compare/adobe-analytics" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_adobe_analytics'})">vs Adobe Analytics</a>
+        </div>
+      </section>
+      <section class="aa-footer__section">
+        <h3 class="aa-footer__heading">Company</h3>
+        <div class="aa-footer__list">
+          <a href="https://x.com/analytics_90590" class="aa-footer__link" target="_blank" rel="noopener noreferrer" onclick="window.aa?.track('cta_click',{id:'footer_company_x'})">X</a>
+          <a href="mailto:contact@agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_company_contact'})">Contact</a>
+          <a href="mailto:support@agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_company_support'})">Support</a>
+        </div>
+      </section>
+      <section class="aa-footer__section">
+        <h3 class="aa-footer__heading">Legal</h3>
+        <div class="aa-footer__list">
+          <a href="https://agentanalytics.sh/privacy" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_privacy'})">Privacy</a>
+          <a href="https://agentanalytics.sh/terms" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_terms'})">Terms</a>
+          <a href="https://agentanalytics.sh/dpa" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_dpa'})">DPA</a>
+        </div>
+      </section>
+      </nav>
     </div>
-    <nav class="aa-footer__links" aria-label="Footer">
-      <a href="https://github.com/Agent-Analytics/agent-analytics" class="aa-footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://docs.agentanalytics.sh" class="aa-footer__link">API Docs</a>
-      <a href="https://blog.agentanalytics.sh" class="aa-footer__link">Blog</a>
-      <a href="https://app.agentanalytics.sh" class="aa-footer__link">Dashboard</a>
-      <a href="https://x.com/analytics_90590" class="aa-footer__link" target="_blank" rel="noopener noreferrer">X</a>
-      <a href="mailto:contact@agentanalytics.sh" class="aa-footer__link">Contact</a>
-      <a href="mailto:support@agentanalytics.sh" class="aa-footer__link">Support</a>
-      <a href="https://agentanalytics.sh/privacy" class="aa-footer__link">Privacy</a>
-      <a href="https://agentanalytics.sh/terms" class="aa-footer__link">Terms</a>
-      <a href="https://agentanalytics.sh/dpa" class="aa-footer__link">DPA</a>
-    </nav>
-    <p class="aa-footer__copy">Built for builders who ship fast. Open source under MIT.</p>
   </div>
 </footer>
