@@ -163,6 +163,12 @@
   }
 } %}
 {% set aaHeader = aaHeaderData[locale or 'en'] or aaHeaderData.en %}
+{% set aaActiveLocaleLabel = aaHeader.switcher.options[0].nativeLabel %}
+{% for option in aaHeader.switcher.options %}
+  {% if option.active %}
+    {% set aaActiveLocaleLabel = option.nativeLabel %}
+  {% endif %}
+{% endfor %}
 <header class="aa-site-header aa-utility-header">
   <div class="aa-utility-header__inner">
     <a href="{{ aaHeader.brand.href }}" class="aa-utility-header__brand">
@@ -179,10 +185,19 @@
       <a href="{{ link.href }}" class="aa-utility-header__link aa-link-muted"{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>
       {% endfor %}
       <div class="aa-utility-header__controls">
-        <div class="aa-utility-header__locale" role="group" aria-label="{{ aaHeader.switcher.label }}">
-          {% for option in aaHeader.switcher.options %}
-          <button type="button" class="aa-utility-header__locale-option{% if option.active %} is-active{% endif %}" data-aa-locale-option="{{ option.id }}" aria-pressed="{% if option.active %}true{% else %}false{% endif %}">{{ option.nativeLabel }}</button>
-          {% endfor %}
+        <div class="aa-utility-header__locale" data-aa-locale-root>
+          <button type="button" class="aa-utility-header__locale-trigger" aria-label="{{ aaHeader.switcher.label }}" aria-haspopup="menu" aria-expanded="false" data-aa-locale-trigger>
+            <span class="aa-utility-header__locale-current">{{ aaActiveLocaleLabel }}</span>
+            <span class="aa-utility-header__locale-caret" aria-hidden="true"></span>
+          </button>
+          <div class="aa-utility-header__locale-menu" role="menu" hidden data-aa-locale-menu>
+            {% for option in aaHeader.switcher.options %}
+            <button type="button" class="aa-utility-header__locale-menu-option{% if option.active %} is-active{% endif %}" role="menuitemradio" aria-checked="{% if option.active %}true{% else %}false{% endif %}" data-aa-locale-option="{{ option.id }}">
+              <span class="aa-utility-header__locale-marker" aria-hidden="true"></span>
+              <span>{{ option.nativeLabel }}</span>
+            </button>
+            {% endfor %}
+          </div>
         </div>
         <a href="{{ aaHeader.cta.href }}" class="aa-utility-header__cta aa-button-dark"{% if aaHeader.cta.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ aaHeader.cta.trackingId }}'})"{% endif %}>{{ aaHeader.cta.label }}</a>
       </div>
@@ -234,17 +249,86 @@
       return (normalizedPath === '/' ? '/' + targetLocale + '/' : '/' + targetLocale + normalizedPath) + query + hash;
     }
 
+    function getLocaleRoots() {
+      return Array.prototype.slice.call(document.querySelectorAll('[data-aa-locale-root]'));
+    }
+
+    function closeLocaleMenu(root) {
+      if (!root) return;
+      root.classList.remove('is-open');
+      var trigger = root.querySelector('[data-aa-locale-trigger]');
+      var menu = root.querySelector('[data-aa-locale-menu]');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (menu) menu.hidden = true;
+    }
+
+    function openLocaleMenu(root) {
+      if (!root) return;
+      var trigger = root.querySelector('[data-aa-locale-trigger]');
+      var menu = root.querySelector('[data-aa-locale-menu]');
+      if (!trigger || !menu) return;
+      root.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    }
+
+    function closeAllLocaleMenus(exceptRoot) {
+      var roots = getLocaleRoots();
+      for (var index = 0; index < roots.length; index += 1) {
+        if (exceptRoot && roots[index] === exceptRoot) continue;
+        closeLocaleMenu(roots[index]);
+      }
+    }
+
     document.addEventListener('click', function (event) {
-      var button = event.target.closest('[data-aa-locale-option]');
-      if (!button) return;
+      var option = event.target.closest('[data-aa-locale-option]');
+      if (option) {
+        var nextLocale = normalizeLocale(option.getAttribute('data-aa-locale-option'));
+        var domain = getCookieDomain();
+        var secure = window.location.protocol === 'https:' ? '; Secure' : '';
+        var domainAttr = domain ? '; Domain=' + domain : '';
 
-      var nextLocale = normalizeLocale(button.getAttribute('data-aa-locale-option'));
-      var domain = getCookieDomain();
-      var secure = window.location.protocol === 'https:' ? '; Secure' : '';
-      var domainAttr = domain ? '; Domain=' + domain : '';
+        document.cookie = COOKIE_NAME + '=' + nextLocale + '; Path=/; Max-Age=' + COOKIE_MAX_AGE + '; SameSite=Lax' + domainAttr + secure;
+        window.location.assign(localizePath(nextLocale, window.location.pathname + window.location.search + window.location.hash));
+        return;
+      }
 
-      document.cookie = COOKIE_NAME + '=' + nextLocale + '; Path=/; Max-Age=' + COOKIE_MAX_AGE + '; SameSite=Lax' + domainAttr + secure;
-      window.location.assign(localizePath(nextLocale, window.location.pathname + window.location.search + window.location.hash));
+      var trigger = event.target.closest('[data-aa-locale-trigger]');
+      if (trigger) {
+        var root = trigger.closest('[data-aa-locale-root]');
+        var isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        closeAllLocaleMenus(root);
+        if (isOpen) {
+          closeLocaleMenu(root);
+        } else {
+          openLocaleMenu(root);
+        }
+        return;
+      }
+
+      var menu = event.target.closest('[data-aa-locale-menu]');
+      if (menu) return;
+
+      closeAllLocaleMenus();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+
+      var roots = getLocaleRoots();
+      var openRoot = null;
+      for (var index = 0; index < roots.length; index += 1) {
+        if (roots[index].classList.contains('is-open')) {
+          openRoot = roots[index];
+          break;
+        }
+      }
+
+      closeAllLocaleMenus();
+      if (!openRoot) return;
+
+      var trigger = openRoot.querySelector('[data-aa-locale-trigger]');
+      if (trigger) trigger.focus();
     });
   })();
 </script>
