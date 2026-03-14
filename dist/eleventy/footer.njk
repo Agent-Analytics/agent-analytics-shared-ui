@@ -1,53 +1,293 @@
+{% set aaFooterData = {
+  "en": {
+    "title": "Agent Analytics",
+    "description": "Agent-ready analytics for builders who ship fast.",
+    "copy": "Built for builders who ship fast. Open source under MIT.",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "Dashboard",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/",
+            "label": "Blog",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/",
+            "label": "API Docs",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "Compare",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/compare/umami",
+            "label": "vs Umami",
+            "trackingId": "footer_compare_umami"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/mixpanel",
+            "label": "vs Mixpanel",
+            "trackingId": "footer_compare_mixpanel"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/amplitude",
+            "label": "vs Amplitude",
+            "trackingId": "footer_compare_amplitude"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/ga4",
+            "label": "vs GA4",
+            "trackingId": "footer_compare_ga4"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/heap",
+            "label": "vs Heap",
+            "trackingId": "footer_compare_heap"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/adobe-analytics",
+            "label": "vs Adobe Analytics",
+            "trackingId": "footer_compare_adobe_analytics"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "Contact",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "Support",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "Privacy",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "Terms",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  },
+  "he": {
+    "title": "Agent Analytics",
+    "description": "אנליטיקה מותאמת לסוכנים עבור בונים שמשחררים מהר.",
+    "copy": "נבנה עבור בונים שמשחררים מהר. קוד פתוח תחת MIT.",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "מוצר",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "לוח בקרה",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/he/",
+            "label": "בלוג",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/he/",
+            "label": "תיעוד API",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "חברה",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "יצירת קשר",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "תמיכה",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "משפטי",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "פרטיות",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "תנאים",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  },
+  "zh": {
+    "title": "Agent Analytics",
+    "description": "为快速交付的构建者打造的智能代理分析。",
+    "copy": "为快速交付的构建者打造。MIT 开源许可。",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "产品",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "仪表盘",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/zh/",
+            "label": "博客",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/zh/",
+            "label": "API 文档",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "公司",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "联系我们",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "支持",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "法律",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "隐私",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "条款",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  }
+} %}
+{% set aaFooter = aaFooterData[locale or 'en'] or aaFooterData.en %}
 <footer class="aa-footer" data-aa-impression="footer">
   <div class="aa-footer__inner">
     <div class="aa-footer__grid">
       <div class="aa-footer__brand">
         <div class="aa-footer__mark">
-          <img src="/logo-v2.png" alt="Agent Analytics">
+          <img src="{{ aaFooter.logoSrc }}" alt="{{ aaFooter.logoAlt }}">
         </div>
         <div class="aa-footer__brand-copy">
-          <h2 class="aa-footer__title">Agent Analytics</h2>
-          <p class="aa-footer__description">Agent-ready analytics for builders who ship fast.</p>
-          <p class="aa-footer__copy">Built for builders who ship fast. Open source under MIT.</p>
+          <h2 class="aa-footer__title">{{ aaFooter.title }}</h2>
+          <p class="aa-footer__description">{{ aaFooter.description }}</p>
+          <p class="aa-footer__copy">{{ aaFooter.copy }}</p>
         </div>
       </div>
       <nav class="aa-footer__sections" aria-label="Footer">
-      <section class="aa-footer__section">
-        <h3 class="aa-footer__heading">Product</h3>
-        <div class="aa-footer__list">
-          <a href="https://app.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_dashboard'})">Dashboard</a>
-          <a href="https://blog.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_blog'})">Blog</a>
-          <a href="https://docs.agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_product_docs'})">API Docs</a>
-          <a href="https://github.com/Agent-Analytics/agent-analytics" class="aa-footer__link" target="_blank" rel="noopener noreferrer" onclick="window.aa?.track('cta_click',{id:'footer_product_github'})">GitHub</a>
-        </div>
-      </section>
-      <section class="aa-footer__section">
-        <h3 class="aa-footer__heading">Compare</h3>
-        <div class="aa-footer__list">
-          <a href="https://agentanalytics.sh/compare/umami" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_umami'})">vs Umami</a>
-          <a href="https://agentanalytics.sh/compare/mixpanel" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_mixpanel'})">vs Mixpanel</a>
-          <a href="https://agentanalytics.sh/compare/amplitude" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_amplitude'})">vs Amplitude</a>
-          <a href="https://agentanalytics.sh/compare/ga4" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_ga4'})">vs GA4</a>
-          <a href="https://agentanalytics.sh/compare/heap" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_heap'})">vs Heap</a>
-          <a href="https://agentanalytics.sh/compare/adobe-analytics" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_compare_adobe_analytics'})">vs Adobe Analytics</a>
-        </div>
-      </section>
-      <section class="aa-footer__section">
-        <h3 class="aa-footer__heading">Company</h3>
-        <div class="aa-footer__list">
-          <a href="https://x.com/analytics_90590" class="aa-footer__link" target="_blank" rel="noopener noreferrer" onclick="window.aa?.track('cta_click',{id:'footer_company_x'})">X</a>
-          <a href="mailto:contact@agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_company_contact'})">Contact</a>
-          <a href="mailto:support@agentanalytics.sh" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_company_support'})">Support</a>
-        </div>
-      </section>
-      <section class="aa-footer__section">
-        <h3 class="aa-footer__heading">Legal</h3>
-        <div class="aa-footer__list">
-          <a href="https://agentanalytics.sh/privacy" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_privacy'})">Privacy</a>
-          <a href="https://agentanalytics.sh/terms" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_terms'})">Terms</a>
-          <a href="https://agentanalytics.sh/dpa" class="aa-footer__link" onclick="window.aa?.track('cta_click',{id:'footer_legal_dpa'})">DPA</a>
-        </div>
-      </section>
+        {% for section in aaFooter.sections %}
+        <section class="aa-footer__section">
+          <h3 class="aa-footer__heading">{{ section.title }}</h3>
+          <div class="aa-footer__list">
+            {% for link in section.links %}
+            <a href="{{ link.href }}" class="aa-footer__link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        </section>
+        {% endfor %}
       </nav>
     </div>
   </div>

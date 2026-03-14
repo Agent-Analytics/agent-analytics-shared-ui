@@ -1,32 +1,64 @@
-export const footerSections = [
-  {
-    title: 'Product',
-    links: [
-      {
-        href: 'https://app.agentanalytics.sh',
-        label: 'Dashboard',
-        trackingId: 'footer_product_dashboard',
-      },
-      {
-        href: 'https://blog.agentanalytics.sh',
-        label: 'Blog',
-        trackingId: 'footer_product_blog',
-      },
-      {
-        href: 'https://docs.agentanalytics.sh',
-        label: 'API Docs',
-        trackingId: 'footer_product_docs',
-      },
-      {
-        href: 'https://github.com/Agent-Analytics/agent-analytics',
-        label: 'GitHub',
-        external: true,
-        trackingId: 'footer_product_github',
-      },
-    ],
+import { DEFAULT_LOCALE, normalizeLocale, withLocaleUrl } from './locales.js';
+
+const footerContentByLocale = {
+  en: {
+    title: 'Agent Analytics',
+    description: 'Agent-ready analytics for builders who ship fast.',
+    tagline: 'Built for builders who ship fast. Open source under MIT.',
+    product: 'Product',
+    compare: 'Compare',
+    company: 'Company',
+    legal: 'Legal',
+    dashboard: 'Dashboard',
+    blog: 'Blog',
+    docs: 'API Docs',
+    github: 'GitHub',
+    contact: 'Contact',
+    support: 'Support',
+    privacy: 'Privacy',
+    terms: 'Terms',
+    dpa: 'DPA',
   },
-  {
-    title: 'Compare',
+  he: {
+    title: 'Agent Analytics',
+    description: 'אנליטיקה מותאמת לסוכנים עבור בונים שמשחררים מהר.',
+    tagline: 'נבנה עבור בונים שמשחררים מהר. קוד פתוח תחת MIT.',
+    product: 'מוצר',
+    compare: 'השוואה',
+    company: 'חברה',
+    legal: 'משפטי',
+    dashboard: 'לוח בקרה',
+    blog: 'בלוג',
+    docs: 'תיעוד API',
+    github: 'GitHub',
+    contact: 'יצירת קשר',
+    support: 'תמיכה',
+    privacy: 'פרטיות',
+    terms: 'תנאים',
+    dpa: 'DPA',
+  },
+  zh: {
+    title: 'Agent Analytics',
+    description: '为快速交付的构建者打造的智能代理分析。',
+    tagline: '为快速交付的构建者打造。MIT 开源许可。',
+    product: '产品',
+    compare: '对比',
+    company: '公司',
+    legal: '法律',
+    dashboard: '仪表盘',
+    blog: '博客',
+    docs: 'API 文档',
+    github: 'GitHub',
+    contact: '联系我们',
+    support: '支持',
+    privacy: '隐私',
+    terms: '条款',
+    dpa: 'DPA',
+  },
+};
+
+function compareSection() {
+  return {
     links: [
       {
         href: 'https://agentanalytics.sh/compare/umami',
@@ -59,65 +91,108 @@ export const footerSections = [
         trackingId: 'footer_compare_adobe_analytics',
       },
     ],
-  },
-  {
-    title: 'Company',
-    links: [
-      {
-        href: 'https://x.com/analytics_90590',
-        label: 'X',
-        external: true,
-        trackingId: 'footer_company_x',
-      },
-      {
-        href: 'mailto:contact@agentanalytics.sh',
-        label: 'Contact',
-        trackingId: 'footer_company_contact',
-      },
-      {
-        href: 'mailto:support@agentanalytics.sh',
-        label: 'Support',
-        trackingId: 'footer_company_support',
-      },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
-      {
-        href: 'https://agentanalytics.sh/privacy',
-        label: 'Privacy',
-        trackingId: 'footer_legal_privacy',
-      },
-      {
-        href: 'https://agentanalytics.sh/terms',
-        label: 'Terms',
-        trackingId: 'footer_legal_terms',
-      },
-      {
-        href: 'https://agentanalytics.sh/dpa',
-        label: 'DPA',
-        trackingId: 'footer_legal_dpa',
-      },
-    ],
-  },
-];
+  };
+}
 
+export const footerContent = footerContentByLocale;
+
+export function getFooter(locale = DEFAULT_LOCALE) {
+  const normalized = normalizeLocale(locale);
+  const current = footerContentByLocale[normalized] || footerContentByLocale.en;
+
+  const sections = [
+    {
+      title: current.product,
+      links: [
+        {
+          href: 'https://app.agentanalytics.sh',
+          label: current.dashboard,
+          trackingId: 'footer_product_dashboard',
+        },
+        {
+          href: withLocaleUrl('https://blog.agentanalytics.sh', normalized, '/'),
+          label: current.blog,
+          trackingId: 'footer_product_blog',
+        },
+        {
+          href: withLocaleUrl('https://docs.agentanalytics.sh', normalized, '/'),
+          label: current.docs,
+          trackingId: 'footer_product_docs',
+        },
+        {
+          href: 'https://github.com/Agent-Analytics/agent-analytics',
+          label: current.github,
+          external: true,
+          trackingId: 'footer_product_github',
+        },
+      ],
+    },
+    {
+      title: current.company,
+      links: [
+        {
+          href: 'https://x.com/analytics_90590',
+          label: 'X',
+          external: true,
+          trackingId: 'footer_company_x',
+        },
+        {
+          href: 'mailto:contact@agentanalytics.sh',
+          label: current.contact,
+          trackingId: 'footer_company_contact',
+        },
+        {
+          href: 'mailto:support@agentanalytics.sh',
+          label: current.support,
+          trackingId: 'footer_company_support',
+        },
+      ],
+    },
+    {
+      title: current.legal,
+      links: [
+        {
+          href: 'https://agentanalytics.sh/privacy',
+          label: current.privacy,
+          trackingId: 'footer_legal_privacy',
+        },
+        {
+          href: 'https://agentanalytics.sh/terms',
+          label: current.terms,
+          trackingId: 'footer_legal_terms',
+        },
+        {
+          href: 'https://agentanalytics.sh/dpa',
+          label: current.dpa,
+          trackingId: 'footer_legal_dpa',
+        },
+      ],
+    },
+  ];
+
+  if (normalized === DEFAULT_LOCALE) {
+    sections.splice(1, 0, {
+      title: current.compare,
+      links: compareSection().links,
+    });
+  }
+
+  return {
+    title: current.title,
+    description: current.description,
+    copy: current.tagline,
+    logoAlt: 'Agent Analytics',
+    logoSrc: '/logo-v2.png',
+    sections,
+  };
+}
+
+export const footerSections = getFooter(DEFAULT_LOCALE).sections;
 export const footerLinks = footerSections.flatMap((section) => section.links);
+export const footerDescription = getFooter(DEFAULT_LOCALE).description;
+export const footerCopy = getFooter(DEFAULT_LOCALE).copy;
+export const footerLogoSrc = getFooter(DEFAULT_LOCALE).logoSrc;
+export const footerLogoAlt = getFooter(DEFAULT_LOCALE).logoAlt;
+export const footerTitle = getFooter(DEFAULT_LOCALE).title;
 
-export const footerCopy = 'Built for builders who ship fast. Open source under MIT.';
-export const footerDescription = 'Agent-ready analytics for builders who ship fast.';
-
-export const footerLogoSrc = '/logo-v2.png';
-export const footerLogoAlt = 'Agent Analytics';
-export const footerTitle = 'Agent Analytics';
-
-export default {
-  copy: footerCopy,
-  description: footerDescription,
-  links: footerLinks,
-  logoAlt: footerLogoAlt,
-  logoSrc: footerLogoSrc,
-  sections: footerSections,
-  title: footerTitle,
-};
+export default getFooter(DEFAULT_LOCALE);

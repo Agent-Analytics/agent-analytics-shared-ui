@@ -1,6 +1,6 @@
 {
   "name": "@agent-analytics/shared-ui",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "private": false,
   "description": "Shared UI primitives, tokens, and marketing chrome for Agent Analytics properties.",
@@ -32,6 +32,7 @@
     ".": "./dist/index.js",
     "./header": "./dist/header.js",
     "./footer": "./dist/footer.js",
+    "./locales": "./dist/locales.js",
     "./astro/Footer.astro": "./dist/astro/Footer.astro",
     "./eleventy/header.njk": "./dist/eleventy/header.njk",
     "./eleventy/footer.njk": "./dist/eleventy/footer.njk",

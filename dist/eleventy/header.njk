@@ -1,19 +1,250 @@
+{% set aaHeaderData = {
+  "en": {
+    "brand": {
+      "href": "/",
+      "logoAlt": "Agent Analytics",
+      "logoSrc": "/logo-v2.png",
+      "subtitle": "Agent-ready analytics",
+      "title": "AgentAnalytics"
+    },
+    "links": [
+      {
+        "href": "https://blog.agentanalytics.sh/",
+        "label": "Blog",
+        "trackingId": "nav_blog"
+      },
+      {
+        "href": "https://docs.agentanalytics.sh/",
+        "label": "Docs",
+        "trackingId": "nav_docs"
+      },
+      {
+        "href": "/#pricing",
+        "label": "Pricing",
+        "trackingId": "nav_pricing"
+      }
+    ],
+    "cta": {
+      "href": "https://app.agentanalytics.sh",
+      "label": "Start free",
+      "trackingId": "nav_start_free"
+    },
+    "switcher": {
+      "label": "Language",
+      "options": [
+        {
+          "id": "en",
+          "label": "English",
+          "nativeLabel": "English",
+          "active": true
+        },
+        {
+          "id": "he",
+          "label": "Hebrew",
+          "nativeLabel": "עברית",
+          "active": false
+        },
+        {
+          "id": "zh",
+          "label": "Chinese",
+          "nativeLabel": "简体中文",
+          "active": false
+        }
+      ]
+    }
+  },
+  "he": {
+    "brand": {
+      "href": "/he/",
+      "logoAlt": "Agent Analytics",
+      "logoSrc": "/logo-v2.png",
+      "subtitle": "אנליטיקה מותאמת לסוכנים",
+      "title": "AgentAnalytics"
+    },
+    "links": [
+      {
+        "href": "https://blog.agentanalytics.sh/he/",
+        "label": "בלוג",
+        "trackingId": "nav_blog"
+      },
+      {
+        "href": "https://docs.agentanalytics.sh/he/",
+        "label": "תיעוד",
+        "trackingId": "nav_docs"
+      },
+      {
+        "href": "/he/#pricing",
+        "label": "מחירים",
+        "trackingId": "nav_pricing"
+      }
+    ],
+    "cta": {
+      "href": "https://app.agentanalytics.sh",
+      "label": "התחילו בחינם",
+      "trackingId": "nav_start_free"
+    },
+    "switcher": {
+      "label": "שפה",
+      "options": [
+        {
+          "id": "en",
+          "label": "English",
+          "nativeLabel": "English",
+          "active": false
+        },
+        {
+          "id": "he",
+          "label": "Hebrew",
+          "nativeLabel": "עברית",
+          "active": true
+        },
+        {
+          "id": "zh",
+          "label": "Chinese",
+          "nativeLabel": "简体中文",
+          "active": false
+        }
+      ]
+    }
+  },
+  "zh": {
+    "brand": {
+      "href": "/zh/",
+      "logoAlt": "Agent Analytics",
+      "logoSrc": "/logo-v2.png",
+      "subtitle": "面向智能代理的分析",
+      "title": "AgentAnalytics"
+    },
+    "links": [
+      {
+        "href": "https://blog.agentanalytics.sh/zh/",
+        "label": "博客",
+        "trackingId": "nav_blog"
+      },
+      {
+        "href": "https://docs.agentanalytics.sh/zh/",
+        "label": "文档",
+        "trackingId": "nav_docs"
+      },
+      {
+        "href": "/zh/#pricing",
+        "label": "价格",
+        "trackingId": "nav_pricing"
+      }
+    ],
+    "cta": {
+      "href": "https://app.agentanalytics.sh",
+      "label": "免费开始",
+      "trackingId": "nav_start_free"
+    },
+    "switcher": {
+      "label": "语言",
+      "options": [
+        {
+          "id": "en",
+          "label": "English",
+          "nativeLabel": "English",
+          "active": false
+        },
+        {
+          "id": "he",
+          "label": "Hebrew",
+          "nativeLabel": "עברית",
+          "active": false
+        },
+        {
+          "id": "zh",
+          "label": "Chinese",
+          "nativeLabel": "简体中文",
+          "active": true
+        }
+      ]
+    }
+  }
+} %}
+{% set aaHeader = aaHeaderData[locale or 'en'] or aaHeaderData.en %}
 <header class="aa-site-header aa-utility-header">
   <div class="aa-utility-header__inner">
-    <a href="/" class="aa-utility-header__brand">
+    <a href="{{ aaHeader.brand.href }}" class="aa-utility-header__brand">
       <span class="aa-utility-header__mark">
-        <img src="/logo-v2.png" alt="Agent Analytics">
+        <img src="{{ aaHeader.brand.logoSrc }}" alt="{{ aaHeader.brand.logoAlt }}">
       </span>
       <span class="aa-utility-header__copy">
-        <strong>AgentAnalytics</strong>
-        <span>Agent-ready analytics</span>
+        <strong>{{ aaHeader.brand.title }}</strong>
+        <span>{{ aaHeader.brand.subtitle }}</span>
       </span>
     </a>
     <nav class="aa-utility-header__nav" aria-label="Primary">
-      <a href="https://blog.agentanalytics.sh" class="aa-utility-header__link aa-link-muted" onclick="window.aa?.track('cta_click',{id:'nav_blog'})">Blog</a>
-      <a href="https://docs.agentanalytics.sh" class="aa-utility-header__link aa-link-muted" onclick="window.aa?.track('cta_click',{id:'nav_docs'})">Docs</a>
-      <a href="/#pricing" class="aa-utility-header__link aa-link-muted" onclick="window.aa?.track('cta_click',{id:'nav_pricing'})">Pricing</a>
-      <a href="https://app.agentanalytics.sh" class="aa-utility-header__cta aa-button-dark" onclick="window.aa?.track('cta_click',{id:'nav_start_free'})">Start free</a>
+      {% for link in aaHeader.links %}
+      <a href="{{ link.href }}" class="aa-utility-header__link aa-link-muted"{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>
+      {% endfor %}
+      <div class="aa-utility-header__controls">
+        <div class="aa-utility-header__locale" role="group" aria-label="{{ aaHeader.switcher.label }}">
+          {% for option in aaHeader.switcher.options %}
+          <button type="button" class="aa-utility-header__locale-option{% if option.active %} is-active{% endif %}" data-aa-locale-option="{{ option.id }}" aria-pressed="{% if option.active %}true{% else %}false{% endif %}">{{ option.nativeLabel }}</button>
+          {% endfor %}
+        </div>
+        <a href="{{ aaHeader.cta.href }}" class="aa-utility-header__cta aa-button-dark"{% if aaHeader.cta.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ aaHeader.cta.trackingId }}'})"{% endif %}>{{ aaHeader.cta.label }}</a>
+      </div>
     </nav>
   </div>
 </header>
+<script>
+  (function () {
+    if (window.__aaLocaleSwitcherInitialized) return;
+    window.__aaLocaleSwitcherInitialized = true;
+
+    var COOKIE_NAME = "aa_locale";
+    var COOKIE_DOMAIN = ".agentanalytics.sh";
+    var COOKIE_MAX_AGE = 31536000;
+
+    function normalizeLocale(locale) {
+      var value = String(locale || '').trim().toLowerCase();
+      if (value === 'iw') return 'he';
+      if (value === 'zh-cn' || value === 'zh-hans' || value === 'zh-sg') return 'zh';
+      if (value === 'en' || value === 'he' || value === 'zh') return value;
+      return 'en';
+    }
+
+    function getCookieDomain() {
+      var hostname = window.location.hostname || '';
+      if (hostname === 'agentanalytics.sh' || hostname.endsWith('.agentanalytics.sh')) {
+        return COOKIE_DOMAIN;
+      }
+      return '';
+    }
+
+    function stripLocalePrefix(pathname) {
+      var source = pathname || '/';
+      return source.replace(/^\/(?:he|zh)(?=\/|$)/, '') || '/';
+    }
+
+    function localizePath(locale, pathname) {
+      var targetLocale = normalizeLocale(locale);
+      var value = String(pathname || '/');
+      var hashIndex = value.indexOf('#');
+      var hash = hashIndex === -1 ? '' : value.slice(hashIndex);
+      var pathAndQuery = hashIndex === -1 ? value : value.slice(0, hashIndex);
+      var queryIndex = pathAndQuery.indexOf('?');
+      var query = queryIndex === -1 ? '' : pathAndQuery.slice(queryIndex);
+      var pathOnly = queryIndex === -1 ? pathAndQuery : pathAndQuery.slice(0, queryIndex);
+      var normalizedPath = stripLocalePrefix(pathOnly.charAt(0) === '/' ? pathOnly : '/' + pathOnly);
+
+      if (targetLocale === 'en') return normalizedPath + query + hash;
+      return (normalizedPath === '/' ? '/' + targetLocale + '/' : '/' + targetLocale + normalizedPath) + query + hash;
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-aa-locale-option]');
+      if (!button) return;
+
+      var nextLocale = normalizeLocale(button.getAttribute('data-aa-locale-option'));
+      var domain = getCookieDomain();
+      var secure = window.location.protocol === 'https:' ? '; Secure' : '';
+      var domainAttr = domain ? '; Domain=' + domain : '';
+
+      document.cookie = COOKIE_NAME + '=' + nextLocale + '; Path=/; Max-Age=' + COOKIE_MAX_AGE + '; SameSite=Lax' + domainAttr + secure;
+      window.location.assign(localizePath(nextLocale, window.location.pathname + window.location.search + window.location.hash));
+    });
+  })();
+</script>

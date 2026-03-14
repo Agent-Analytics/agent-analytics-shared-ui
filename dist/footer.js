@@ -1,203 +1,283 @@
-export const footerLinks = [
-  {
-    "href": "https://app.agentanalytics.sh",
-    "label": "Dashboard",
-    "trackingId": "footer_product_dashboard"
-  },
-  {
-    "href": "https://blog.agentanalytics.sh",
-    "label": "Blog",
-    "trackingId": "footer_product_blog"
-  },
-  {
-    "href": "https://docs.agentanalytics.sh",
-    "label": "API Docs",
-    "trackingId": "footer_product_docs"
-  },
-  {
-    "href": "https://github.com/Agent-Analytics/agent-analytics",
-    "label": "GitHub",
-    "external": true,
-    "trackingId": "footer_product_github"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/umami",
-    "label": "vs Umami",
-    "trackingId": "footer_compare_umami"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/mixpanel",
-    "label": "vs Mixpanel",
-    "trackingId": "footer_compare_mixpanel"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/amplitude",
-    "label": "vs Amplitude",
-    "trackingId": "footer_compare_amplitude"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/ga4",
-    "label": "vs GA4",
-    "trackingId": "footer_compare_ga4"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/heap",
-    "label": "vs Heap",
-    "trackingId": "footer_compare_heap"
-  },
-  {
-    "href": "https://agentanalytics.sh/compare/adobe-analytics",
-    "label": "vs Adobe Analytics",
-    "trackingId": "footer_compare_adobe_analytics"
-  },
-  {
-    "href": "https://x.com/analytics_90590",
-    "label": "X",
-    "external": true,
-    "trackingId": "footer_company_x"
-  },
-  {
-    "href": "mailto:contact@agentanalytics.sh",
-    "label": "Contact",
-    "trackingId": "footer_company_contact"
-  },
-  {
-    "href": "mailto:support@agentanalytics.sh",
-    "label": "Support",
-    "trackingId": "footer_company_support"
-  },
-  {
-    "href": "https://agentanalytics.sh/privacy",
-    "label": "Privacy",
-    "trackingId": "footer_legal_privacy"
-  },
-  {
-    "href": "https://agentanalytics.sh/terms",
-    "label": "Terms",
-    "trackingId": "footer_legal_terms"
-  },
-  {
-    "href": "https://agentanalytics.sh/dpa",
-    "label": "DPA",
-    "trackingId": "footer_legal_dpa"
-  }
-];
-export const footerSections = [
-  {
-    "title": "Product",
-    "links": [
-      {
-        "href": "https://app.agentanalytics.sh",
-        "label": "Dashboard",
-        "trackingId": "footer_product_dashboard"
-      },
-      {
-        "href": "https://blog.agentanalytics.sh",
-        "label": "Blog",
-        "trackingId": "footer_product_blog"
-      },
-      {
-        "href": "https://docs.agentanalytics.sh",
-        "label": "API Docs",
-        "trackingId": "footer_product_docs"
-      },
-      {
-        "href": "https://github.com/Agent-Analytics/agent-analytics",
-        "label": "GitHub",
-        "external": true,
-        "trackingId": "footer_product_github"
-      }
-    ]
-  },
-  {
-    "title": "Compare",
-    "links": [
-      {
-        "href": "https://agentanalytics.sh/compare/umami",
-        "label": "vs Umami",
-        "trackingId": "footer_compare_umami"
-      },
-      {
-        "href": "https://agentanalytics.sh/compare/mixpanel",
-        "label": "vs Mixpanel",
-        "trackingId": "footer_compare_mixpanel"
-      },
-      {
-        "href": "https://agentanalytics.sh/compare/amplitude",
-        "label": "vs Amplitude",
-        "trackingId": "footer_compare_amplitude"
-      },
-      {
-        "href": "https://agentanalytics.sh/compare/ga4",
-        "label": "vs GA4",
-        "trackingId": "footer_compare_ga4"
-      },
-      {
-        "href": "https://agentanalytics.sh/compare/heap",
-        "label": "vs Heap",
-        "trackingId": "footer_compare_heap"
-      },
-      {
-        "href": "https://agentanalytics.sh/compare/adobe-analytics",
-        "label": "vs Adobe Analytics",
-        "trackingId": "footer_compare_adobe_analytics"
-      }
-    ]
-  },
-  {
-    "title": "Company",
-    "links": [
-      {
-        "href": "https://x.com/analytics_90590",
-        "label": "X",
-        "external": true,
-        "trackingId": "footer_company_x"
-      },
-      {
-        "href": "mailto:contact@agentanalytics.sh",
-        "label": "Contact",
-        "trackingId": "footer_company_contact"
-      },
-      {
-        "href": "mailto:support@agentanalytics.sh",
-        "label": "Support",
-        "trackingId": "footer_company_support"
-      }
-    ]
-  },
-  {
-    "title": "Legal",
-    "links": [
-      {
-        "href": "https://agentanalytics.sh/privacy",
-        "label": "Privacy",
-        "trackingId": "footer_legal_privacy"
-      },
-      {
-        "href": "https://agentanalytics.sh/terms",
-        "label": "Terms",
-        "trackingId": "footer_legal_terms"
-      },
-      {
-        "href": "https://agentanalytics.sh/dpa",
-        "label": "DPA",
-        "trackingId": "footer_legal_dpa"
-      }
-    ]
-  }
-];
-export const footerCopy = "Built for builders who ship fast. Open source under MIT.";
-export const footerDescription = "Agent-ready analytics for builders who ship fast.";
-export const footerLogoSrc = "/logo-v2.png";
-export const footerLogoAlt = "Agent Analytics";
-export const footerTitle = "Agent Analytics";
+import { DEFAULT_LOCALE, normalizeLocale, withLocaleUrl } from './locales.js';
 
-export default {
-  copy: footerCopy,
-  description: footerDescription,
-  links: footerLinks,
-  logoAlt: footerLogoAlt,
-  logoSrc: footerLogoSrc,
-  sections: footerSections,
-  title: footerTitle,
+const footerData = {
+  "en": {
+    "title": "Agent Analytics",
+    "description": "Agent-ready analytics for builders who ship fast.",
+    "copy": "Built for builders who ship fast. Open source under MIT.",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "Product",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "Dashboard",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/",
+            "label": "Blog",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/",
+            "label": "API Docs",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "Compare",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/compare/umami",
+            "label": "vs Umami",
+            "trackingId": "footer_compare_umami"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/mixpanel",
+            "label": "vs Mixpanel",
+            "trackingId": "footer_compare_mixpanel"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/amplitude",
+            "label": "vs Amplitude",
+            "trackingId": "footer_compare_amplitude"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/ga4",
+            "label": "vs GA4",
+            "trackingId": "footer_compare_ga4"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/heap",
+            "label": "vs Heap",
+            "trackingId": "footer_compare_heap"
+          },
+          {
+            "href": "https://agentanalytics.sh/compare/adobe-analytics",
+            "label": "vs Adobe Analytics",
+            "trackingId": "footer_compare_adobe_analytics"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "Contact",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "Support",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "Privacy",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "Terms",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  },
+  "he": {
+    "title": "Agent Analytics",
+    "description": "אנליטיקה מותאמת לסוכנים עבור בונים שמשחררים מהר.",
+    "copy": "נבנה עבור בונים שמשחררים מהר. קוד פתוח תחת MIT.",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "מוצר",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "לוח בקרה",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/he/",
+            "label": "בלוג",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/he/",
+            "label": "תיעוד API",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "חברה",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "יצירת קשר",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "תמיכה",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "משפטי",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "פרטיות",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "תנאים",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  },
+  "zh": {
+    "title": "Agent Analytics",
+    "description": "为快速交付的构建者打造的智能代理分析。",
+    "copy": "为快速交付的构建者打造。MIT 开源许可。",
+    "logoAlt": "Agent Analytics",
+    "logoSrc": "/logo-v2.png",
+    "sections": [
+      {
+        "title": "产品",
+        "links": [
+          {
+            "href": "https://app.agentanalytics.sh",
+            "label": "仪表盘",
+            "trackingId": "footer_product_dashboard"
+          },
+          {
+            "href": "https://blog.agentanalytics.sh/zh/",
+            "label": "博客",
+            "trackingId": "footer_product_blog"
+          },
+          {
+            "href": "https://docs.agentanalytics.sh/zh/",
+            "label": "API 文档",
+            "trackingId": "footer_product_docs"
+          },
+          {
+            "href": "https://github.com/Agent-Analytics/agent-analytics",
+            "label": "GitHub",
+            "external": true,
+            "trackingId": "footer_product_github"
+          }
+        ]
+      },
+      {
+        "title": "公司",
+        "links": [
+          {
+            "href": "https://x.com/analytics_90590",
+            "label": "X",
+            "external": true,
+            "trackingId": "footer_company_x"
+          },
+          {
+            "href": "mailto:contact@agentanalytics.sh",
+            "label": "联系我们",
+            "trackingId": "footer_company_contact"
+          },
+          {
+            "href": "mailto:support@agentanalytics.sh",
+            "label": "支持",
+            "trackingId": "footer_company_support"
+          }
+        ]
+      },
+      {
+        "title": "法律",
+        "links": [
+          {
+            "href": "https://agentanalytics.sh/privacy",
+            "label": "隐私",
+            "trackingId": "footer_legal_privacy"
+          },
+          {
+            "href": "https://agentanalytics.sh/terms",
+            "label": "条款",
+            "trackingId": "footer_legal_terms"
+          },
+          {
+            "href": "https://agentanalytics.sh/dpa",
+            "label": "DPA",
+            "trackingId": "footer_legal_dpa"
+          }
+        ]
+      }
+    ]
+  }
 };
+
+export const footerLocales = footerData;
+export const footerLinks = footerData[DEFAULT_LOCALE].sections.flatMap((section) => section.links);
+export const footerSections = footerData[DEFAULT_LOCALE].sections;
+export const footerCopy = footerData[DEFAULT_LOCALE].copy;
+export const footerDescription = footerData[DEFAULT_LOCALE].description;
+export const footerLogoSrc = footerData[DEFAULT_LOCALE].logoSrc;
+export const footerLogoAlt = footerData[DEFAULT_LOCALE].logoAlt;
+export const footerTitle = footerData[DEFAULT_LOCALE].title;
+
+export function getFooter(locale = DEFAULT_LOCALE) {
+  return footerData[normalizeLocale(locale)] ?? footerData[DEFAULT_LOCALE];
+}
+
+export { DEFAULT_LOCALE, normalizeLocale, withLocaleUrl };
+export default getFooter(DEFAULT_LOCALE);
