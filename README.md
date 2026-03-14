@@ -2,6 +2,8 @@
 
 Shared UI primitives, design tokens, and site chrome for Agent Analytics properties.
 
+Consumers install published package versions only. Do not rely on sibling-repo `dist/` fallbacks in app builds or CI.
+
 ## Exports
 
 - `@agent-analytics/shared-ui/tokens.json`
@@ -26,8 +28,10 @@ npm run build
 npm publish --access public
 ```
 
+After publishing a new version, update each consumer repo to that exact version and refresh its lockfile before pushing.
+
 ## Consumer usage
 
 ```bash
-npm install @agent-analytics/shared-ui@0.1.0
+npm install @agent-analytics/shared-ui@0.2.0
 ```
