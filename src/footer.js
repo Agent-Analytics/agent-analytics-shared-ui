@@ -22,7 +22,7 @@ const footerContentByLocale = {
   he: {
     title: 'Agent Analytics',
     description: 'אנליטיקה שסוכני AI יכולים לקרוא, לנתח ולפעול לפיה.',
-    tagline: 'נבנה למפתחים ולצוותים שמשחררים מהר. קוד פתוח ברישיון MIT.',
+    tagline: 'נבנה למפתחים ולצוותים שבונים מהר. קוד פתוח ברישיון MIT.',
     product: 'מוצר',
     compare: 'השוואה',
     company: 'חברה',
