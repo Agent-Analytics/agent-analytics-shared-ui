@@ -6,7 +6,9 @@ const footerData = {
     "description": "Agent-ready analytics for builders who ship fast.",
     "copy": "Built for builders who ship fast. Open source under MIT.",
     "logoAlt": "Agent Analytics",
-    "logoSrc": "/logo-v2.png",
+    "logoSrc": "/logo-v2-96.png",
+    "logoWidth": 96,
+    "logoHeight": 76,
     "sections": [
       {
         "title": "Product",
@@ -117,7 +119,9 @@ const footerData = {
     "description": "אנליטיקה שסוכני AI יכולים לקרוא, לנתח ולפעול לפיה.",
     "copy": "נבנה למפתחים ולצוותים שבונים מהר. קוד פתוח ברישיון MIT.",
     "logoAlt": "Agent Analytics",
-    "logoSrc": "/logo-v2.png",
+    "logoSrc": "/logo-v2-96.png",
+    "logoWidth": 96,
+    "logoHeight": 76,
     "sections": [
       {
         "title": "מוצר",
@@ -193,7 +197,9 @@ const footerData = {
     "description": "为快速交付的构建者打造的智能代理分析。",
     "copy": "为快速交付的构建者打造。MIT 开源许可。",
     "logoAlt": "Agent Analytics",
-    "logoSrc": "/logo-v2.png",
+    "logoSrc": "/logo-v2-96.png",
+    "logoWidth": 96,
+    "logoHeight": 76,
     "sections": [
       {
         "title": "产品",

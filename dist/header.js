@@ -5,7 +5,9 @@ const headerData = {
     "brand": {
       "href": "/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "Agent-ready analytics",
       "title": "AgentAnalytics"
     },
@@ -33,6 +35,8 @@ const headerData = {
     },
     "switcher": {
       "label": "Language",
+      "activeLabel": "English",
+      "ariaLabel": "English, Language",
       "options": [
         {
           "id": "en",
@@ -59,7 +63,9 @@ const headerData = {
     "brand": {
       "href": "/he/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "אנליטיקה שסוכני AI יכולים לקרוא",
       "title": "AgentAnalytics"
     },
@@ -87,6 +93,8 @@ const headerData = {
     },
     "switcher": {
       "label": "שפה",
+      "activeLabel": "עברית",
+      "ariaLabel": "עברית, שפה",
       "options": [
         {
           "id": "en",
@@ -113,7 +121,9 @@ const headerData = {
     "brand": {
       "href": "/zh/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "面向智能代理的分析",
       "title": "AgentAnalytics"
     },
@@ -141,6 +151,8 @@ const headerData = {
     },
     "switcher": {
       "label": "语言",
+      "activeLabel": "简体中文",
+      "ariaLabel": "简体中文, 语言",
       "options": [
         {
           "id": "en",

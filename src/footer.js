@@ -182,7 +182,9 @@ export function getFooter(locale = DEFAULT_LOCALE) {
     description: current.description,
     copy: current.tagline,
     logoAlt: 'Agent Analytics',
-    logoSrc: '/logo-v2.png',
+    logoSrc: '/logo-v2-96.png',
+    logoWidth: 96,
+    logoHeight: 76,
     sections,
   };
 }

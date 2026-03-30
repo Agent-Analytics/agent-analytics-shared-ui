@@ -3,7 +3,9 @@
     "brand": {
       "href": "/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "Agent-ready analytics",
       "title": "AgentAnalytics"
     },
@@ -31,6 +33,8 @@
     },
     "switcher": {
       "label": "Language",
+      "activeLabel": "English",
+      "ariaLabel": "English, Language",
       "options": [
         {
           "id": "en",
@@ -57,7 +61,9 @@
     "brand": {
       "href": "/he/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "אנליטיקה שסוכני AI יכולים לקרוא",
       "title": "AgentAnalytics"
     },
@@ -85,6 +91,8 @@
     },
     "switcher": {
       "label": "שפה",
+      "activeLabel": "עברית",
+      "ariaLabel": "עברית, שפה",
       "options": [
         {
           "id": "en",
@@ -111,7 +119,9 @@
     "brand": {
       "href": "/zh/",
       "logoAlt": "Agent Analytics",
-      "logoSrc": "/logo-v2.png",
+      "logoSrc": "/logo-v2-96.png",
+      "logoWidth": 96,
+      "logoHeight": 76,
       "subtitle": "面向智能代理的分析",
       "title": "AgentAnalytics"
     },
@@ -139,6 +149,8 @@
     },
     "switcher": {
       "label": "语言",
+      "activeLabel": "简体中文",
+      "ariaLabel": "简体中文, 语言",
       "options": [
         {
           "id": "en",
@@ -163,7 +175,7 @@
   }
 } %}
 {% set aaHeader = aaHeaderData[locale or 'en'] or aaHeaderData.en %}
-{% set aaActiveLocaleLabel = aaHeader.switcher.options[0].nativeLabel %}
+{% set aaActiveLocaleLabel = aaHeader.switcher.activeLabel or aaHeader.switcher.options[0].nativeLabel %}
 {% for option in aaHeader.switcher.options %}
   {% if option.active %}
     {% set aaActiveLocaleLabel = option.nativeLabel %}
@@ -173,7 +185,7 @@
   <div class="aa-utility-header__inner">
     <a href="{{ aaHeader.brand.href }}" class="aa-utility-header__brand">
       <span class="aa-utility-header__mark">
-        <img src="{{ aaHeader.brand.logoSrc }}" alt="{{ aaHeader.brand.logoAlt }}">
+        <img src="{{ aaHeader.brand.logoSrc }}" alt="{{ aaHeader.brand.logoAlt }}" width="{{ aaHeader.brand.logoWidth }}" height="{{ aaHeader.brand.logoHeight }}">
       </span>
       <span class="aa-utility-header__copy">
         <strong>{{ aaHeader.brand.title }}</strong>
@@ -186,7 +198,7 @@
       {% endfor %}
       <div class="aa-utility-header__controls">
         <div class="aa-utility-header__locale" data-aa-locale-root>
-          <button type="button" class="aa-utility-header__locale-trigger" aria-label="{{ aaHeader.switcher.label }}" aria-haspopup="menu" aria-expanded="false" data-aa-locale-trigger>
+          <button type="button" class="aa-utility-header__locale-trigger" aria-label="{{ aaHeader.switcher.ariaLabel or aaActiveLocaleLabel }}" aria-haspopup="menu" aria-expanded="false" data-aa-locale-trigger>
             <span class="aa-utility-header__locale-current">{{ aaActiveLocaleLabel }}</span>
             <span class="aa-utility-header__locale-caret" aria-hidden="true"></span>
           </button>

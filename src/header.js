@@ -39,8 +39,11 @@ export const headerCopy = copy;
 export function getHeader(locale = DEFAULT_LOCALE) {
   const normalized = normalizeLocale(locale);
   const current = copy[normalized] || copy.en;
+  const activeLocale = LOCALE_META[normalized] || LOCALE_META[DEFAULT_LOCALE];
   const switcher = {
     label: current.language,
+    activeLabel: activeLocale.nativeLabel,
+    ariaLabel: `${activeLocale.nativeLabel}, ${current.language}`,
     options: SUPPORTED_LOCALES.map((localeId) => ({
       id: localeId,
       label: LOCALE_META[localeId].label,
@@ -53,7 +56,9 @@ export function getHeader(locale = DEFAULT_LOCALE) {
     brand: {
       href: localizePath(normalized, '/'),
       logoAlt: 'Agent Analytics',
-      logoSrc: '/logo-v2.png',
+      logoSrc: '/logo-v2-96.png',
+      logoWidth: 96,
+      logoHeight: 76,
       subtitle: current.subtitle,
       title: 'AgentAnalytics',
     },
