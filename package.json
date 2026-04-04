@@ -1,6 +1,6 @@
 {
   "name": "@agent-analytics/shared-ui",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "type": "module",
   "private": false,
   "description": "Shared UI primitives, tokens, and marketing chrome for Agent Analytics properties.",
