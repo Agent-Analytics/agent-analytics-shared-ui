@@ -34,5 +34,5 @@ After publishing a new version, update each consumer repo to that exact version 
 ## Consumer usage
 
 ```bash
-npm install @agent-analytics/shared-ui@0.3.6
+npm install @agent-analytics/shared-ui@0.3.7
 ```
