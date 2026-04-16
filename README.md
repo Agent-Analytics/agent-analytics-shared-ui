@@ -15,6 +15,7 @@ Consumers install published package versions only. Do not rely on sibling-repo `
 - `@agent-analytics/shared-ui/eleventy/header.njk`
 - `@agent-analytics/shared-ui/astro/Footer.astro`
 - `@agent-analytics/shared-ui/eleventy/footer.njk`
+- `@agent-analytics/shared-ui/eleventy/content-ticker.njk`
 
 ## Build
 
@@ -33,5 +34,5 @@ After publishing a new version, update each consumer repo to that exact version 
 ## Consumer usage
 
 ```bash
-npm install @agent-analytics/shared-ui@0.3.4
+npm install @agent-analytics/shared-ui@0.3.6
 ```

@@ -1,0 +1,131 @@
+{% set aaContentTicker = contentTicker or blogTicker %}
+{% if aaContentTicker %}
+<section class="aa-content-ticker" aria-label="{{ aaContentTicker.ariaLabel or aaContentTicker.label or 'Latest content' }}" data-aa-content-ticker data-aa-content-ticker-feed-url="{{ aaContentTicker.feedUrl }}" data-aa-content-ticker-locale="{{ aaContentTicker.locale or locale or 'en' }}" data-aa-content-ticker-source="{{ aaContentTicker.source or 'content_ticker' }}">
+  <div class="aa-content-ticker__label">{{ aaContentTicker.label or 'Latest' }}</div>
+  <div class="aa-content-ticker__viewport">
+    <div class="aa-content-ticker__track" data-aa-content-ticker-track aria-live="polite">
+      <div class="aa-content-ticker__group">
+        <a href="{{ aaContentTicker.fallbackHref }}" class="aa-content-ticker__item" data-aa-content-ticker-link data-aa-content-ticker-slug="blog_home">
+          {% if aaContentTicker.fallbackDateLabel %}<span class="aa-content-ticker__date">{{ aaContentTicker.fallbackDateLabel }}</span>{% endif %}
+          <span class="aa-content-ticker__category">{{ aaContentTicker.fallbackCategoryLabel or aaContentTicker.label or 'Latest' }}</span>
+          <span class="aa-content-ticker__title">{{ aaContentTicker.fallbackLabel }}</span>
+        </a>
+      </div>
+      <div class="aa-content-ticker__group" aria-hidden="true">
+        <a href="{{ aaContentTicker.fallbackHref }}" class="aa-content-ticker__item" tabindex="-1" data-aa-content-ticker-link data-aa-content-ticker-slug="blog_home">
+          {% if aaContentTicker.fallbackDateLabel %}<span class="aa-content-ticker__date">{{ aaContentTicker.fallbackDateLabel }}</span>{% endif %}
+          <span class="aa-content-ticker__category">{{ aaContentTicker.fallbackCategoryLabel or aaContentTicker.label or 'Latest' }}</span>
+          <span class="aa-content-ticker__title">{{ aaContentTicker.fallbackLabel }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    if (window.__aaContentTickerInitialized) return;
+    window.__aaContentTickerInitialized = true;
+
+    function text(value) {
+      return typeof value === 'string' ? value : '';
+    }
+
+    function safeUrl(value, fallbackValue) {
+      try {
+        var url = new URL(text(value), window.location.href);
+        if (url.protocol === 'https:' || url.protocol === 'http:') return url.toString();
+      } catch (error) {}
+      return fallbackValue || '#';
+    }
+
+    function createSpan(className, value) {
+      var span = document.createElement('span');
+      span.className = className;
+      span.textContent = value;
+      return span;
+    }
+
+    function trackClick(root, link) {
+      if (!link) return;
+      var source = root.getAttribute('data-aa-content-ticker-source') || 'content_ticker';
+      var locale = root.getAttribute('data-aa-content-ticker-locale') || 'en';
+      var slug = link.getAttribute('data-aa-content-ticker-slug') || 'blog_home';
+      if (window.aa && typeof window.aa.track === 'function') {
+        window.aa.track('blog_ticker_click', { slug: slug, locale: locale, source: source });
+      }
+    }
+
+    function buildItem(root, post, isDuplicate) {
+      var fallbackLink = root.querySelector('[data-aa-content-ticker-link]');
+      var fallbackHref = fallbackLink ? fallbackLink.getAttribute('href') : '#';
+      var link = document.createElement('a');
+      var slug = text(post.slug) || 'blog_home';
+      link.className = 'aa-content-ticker__item';
+      link.href = safeUrl(post.href, fallbackHref);
+      link.setAttribute('data-aa-content-ticker-link', '');
+      link.setAttribute('data-aa-content-ticker-slug', slug);
+      if (isDuplicate) link.tabIndex = -1;
+
+      var dateLabel = text(post.dateLabel);
+      var categoryLabel = text(post.categoryLabel) || text(post.category);
+      var title = text(post.title);
+
+      if (dateLabel) link.appendChild(createSpan('aa-content-ticker__date', dateLabel));
+      if (categoryLabel) link.appendChild(createSpan('aa-content-ticker__category', categoryLabel));
+      link.appendChild(createSpan('aa-content-ticker__title', title));
+      return link;
+    }
+
+    function renderPosts(root, posts) {
+      var track = root.querySelector('[data-aa-content-ticker-track]');
+      if (!track || !posts.length) return;
+
+      var fragment = document.createDocumentFragment();
+      [false, true].forEach(function (isDuplicate) {
+        var group = document.createElement('div');
+        group.className = 'aa-content-ticker__group';
+        if (isDuplicate) group.setAttribute('aria-hidden', 'true');
+        posts.forEach(function (post) {
+          group.appendChild(buildItem(root, post, isDuplicate));
+        });
+        fragment.appendChild(group);
+      });
+
+      track.replaceChildren(fragment);
+      root.setAttribute('data-aa-content-ticker-loaded', 'true');
+    }
+
+    function normalizePosts(data) {
+      if (!data || data.version !== 1 || !Array.isArray(data.posts)) return [];
+      return data.posts.filter(function (post) {
+        return post && typeof post.title === 'string' && typeof post.href === 'string';
+      }).slice(0, 6);
+    }
+
+    function initTicker(root) {
+      root.addEventListener('click', function (event) {
+        var link = event.target.closest('[data-aa-content-ticker-link]');
+        if (!link || !root.contains(link)) return;
+        trackClick(root, link);
+      });
+
+      var feedUrl = root.getAttribute('data-aa-content-ticker-feed-url');
+      if (!feedUrl || !window.fetch) return;
+
+      fetch(feedUrl, { headers: { Accept: 'application/json' } })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Ticker feed request failed');
+          return response.json();
+        })
+        .then(function (data) {
+          renderPosts(root, normalizePosts(data));
+        })
+        .catch(function () {
+          root.setAttribute('data-aa-content-ticker-fallback', 'true');
+        });
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-aa-content-ticker]'), initTicker);
+  })();
+</script>
+{% endif %}
