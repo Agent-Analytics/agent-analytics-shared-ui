@@ -25,7 +25,7 @@ const footerData = {
           },
           {
             "href": "https://docs.agentanalytics.sh/",
-            "label": "API Docs",
+            "label": "Docs",
             "trackingId": "footer_product_docs"
           },
           {
@@ -138,7 +138,7 @@ const footerData = {
           },
           {
             "href": "https://docs.agentanalytics.sh/he/",
-            "label": "תיעוד API",
+            "label": "תיעוד",
             "trackingId": "footer_product_docs"
           },
           {
@@ -216,7 +216,7 @@ const footerData = {
           },
           {
             "href": "https://docs.agentanalytics.sh/zh/",
-            "label": "API 文档",
+            "label": "文档",
             "trackingId": "footer_product_docs"
           },
           {
