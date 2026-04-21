@@ -4,7 +4,7 @@ const footerData = {
   "en": {
     "title": "Agent Analytics",
     "description": "Agent-ready analytics for builders who ship fast.",
-    "copy": "Built for builders who ship fast. Open source under MIT.",
+    "copy": "Open source under MIT.",
     "logoAlt": "Agent Analytics",
     "logoSrc": "/logo-v2-96.png",
     "logoWidth": 96,
@@ -33,6 +33,18 @@ const footerData = {
             "label": "GitHub",
             "external": true,
             "trackingId": "footer_product_github"
+          },
+          {
+            "href": "https://openorchestrators.org/",
+            "label": "OpenOrchestrators",
+            "external": true,
+            "trackingId": "footer_product_openorchestrators"
+          },
+          {
+            "href": "https://clawflows.com/",
+            "label": "Clawflows",
+            "external": true,
+            "trackingId": "footer_product_clawflows"
           }
         ]
       },
@@ -146,6 +158,16 @@ const footerData = {
             "label": "GitHub",
             "external": true,
             "trackingId": "footer_product_github"
+          },
+          {
+            "href": "https://openorchestrators.org/",
+            "external": true,
+            "trackingId": "footer_product_openorchestrators"
+          },
+          {
+            "href": "https://clawflows.com/",
+            "external": true,
+            "trackingId": "footer_product_clawflows"
           }
         ]
       },
@@ -224,6 +246,16 @@ const footerData = {
             "label": "GitHub",
             "external": true,
             "trackingId": "footer_product_github"
+          },
+          {
+            "href": "https://openorchestrators.org/",
+            "external": true,
+            "trackingId": "footer_product_openorchestrators"
+          },
+          {
+            "href": "https://clawflows.com/",
+            "external": true,
+            "trackingId": "footer_product_clawflows"
           }
         ]
       },
