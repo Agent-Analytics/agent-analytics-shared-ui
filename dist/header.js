@@ -35,7 +35,7 @@ const headerData = {
     },
     "switcher": {
       "label": "Language",
-      "activeLabel": "English",
+      "activeLabel": "En",
       "ariaLabel": "English, Language",
       "options": [
         {

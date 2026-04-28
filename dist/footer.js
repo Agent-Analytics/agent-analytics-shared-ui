@@ -161,11 +161,13 @@ const footerData = {
           },
           {
             "href": "https://openorchestrators.org/",
+            "label": "OpenOrchestrators",
             "external": true,
             "trackingId": "footer_product_openorchestrators"
           },
           {
             "href": "https://clawflows.com/",
+            "label": "Clawflows",
             "external": true,
             "trackingId": "footer_product_clawflows"
           }
@@ -249,11 +251,13 @@ const footerData = {
           },
           {
             "href": "https://openorchestrators.org/",
+            "label": "OpenOrchestrators",
             "external": true,
             "trackingId": "footer_product_openorchestrators"
           },
           {
             "href": "https://clawflows.com/",
+            "label": "Clawflows",
             "external": true,
             "trackingId": "footer_product_clawflows"
           }

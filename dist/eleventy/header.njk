@@ -33,7 +33,7 @@
     },
     "switcher": {
       "label": "Language",
-      "activeLabel": "English",
+      "activeLabel": "En",
       "ariaLabel": "English, Language",
       "options": [
         {
@@ -177,7 +177,7 @@
 {% set aaHeader = aaHeaderData[locale or 'en'] or aaHeaderData.en %}
 {% set aaActiveLocaleLabel = aaHeader.switcher.activeLabel or aaHeader.switcher.options[0].nativeLabel %}
 {% for option in aaHeader.switcher.options %}
-  {% if option.active %}
+  {% if option.active and not aaHeader.switcher.activeLabel %}
     {% set aaActiveLocaleLabel = option.nativeLabel %}
   {% endif %}
 {% endfor %}

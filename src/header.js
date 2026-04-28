@@ -40,9 +40,10 @@ export function getHeader(locale = DEFAULT_LOCALE) {
   const normalized = normalizeLocale(locale);
   const current = copy[normalized] || copy.en;
   const activeLocale = LOCALE_META[normalized] || LOCALE_META[DEFAULT_LOCALE];
+  const activeLabel = normalized === 'en' ? 'En' : activeLocale.nativeLabel;
   const switcher = {
     label: current.language,
-    activeLabel: activeLocale.nativeLabel,
+    activeLabel,
     ariaLabel: `${activeLocale.nativeLabel}, ${current.language}`,
     options: SUPPORTED_LOCALES.map((localeId) => ({
       id: localeId,
