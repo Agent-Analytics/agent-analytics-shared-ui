@@ -40,32 +40,32 @@ const footerData = {
         "title": "Compare",
         "links": [
           {
-            "href": "https://agentanalytics.sh/compare/umami",
+            "href": "https://agentanalytics.sh/compare/umami/",
             "label": "vs Umami",
             "trackingId": "footer_compare_umami"
           },
           {
-            "href": "https://agentanalytics.sh/compare/mixpanel",
+            "href": "https://agentanalytics.sh/compare/mixpanel/",
             "label": "vs Mixpanel",
             "trackingId": "footer_compare_mixpanel"
           },
           {
-            "href": "https://agentanalytics.sh/compare/amplitude",
+            "href": "https://agentanalytics.sh/compare/amplitude/",
             "label": "vs Amplitude",
             "trackingId": "footer_compare_amplitude"
           },
           {
-            "href": "https://agentanalytics.sh/compare/ga4",
+            "href": "https://agentanalytics.sh/compare/ga4/",
             "label": "vs GA4",
             "trackingId": "footer_compare_ga4"
           },
           {
-            "href": "https://agentanalytics.sh/compare/heap",
+            "href": "https://agentanalytics.sh/compare/heap/",
             "label": "vs Heap",
             "trackingId": "footer_compare_heap"
           },
           {
-            "href": "https://agentanalytics.sh/compare/adobe-analytics",
+            "href": "https://agentanalytics.sh/compare/adobe-analytics/",
             "label": "vs Adobe Analytics",
             "trackingId": "footer_compare_adobe_analytics"
           }
@@ -82,11 +82,13 @@ const footerData = {
           },
           {
             "href": "mailto:contact@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "Contact",
             "trackingId": "footer_company_contact"
           },
           {
             "href": "mailto:support@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "Support",
             "trackingId": "footer_company_support"
           }
@@ -96,17 +98,17 @@ const footerData = {
         "title": "Legal",
         "links": [
           {
-            "href": "https://agentanalytics.sh/privacy",
+            "href": "https://agentanalytics.sh/privacy/",
             "label": "Privacy",
             "trackingId": "footer_legal_privacy"
           },
           {
-            "href": "https://agentanalytics.sh/terms",
+            "href": "https://agentanalytics.sh/terms/",
             "label": "Terms",
             "trackingId": "footer_legal_terms"
           },
           {
-            "href": "https://agentanalytics.sh/dpa",
+            "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
           }
@@ -160,11 +162,13 @@ const footerData = {
           },
           {
             "href": "mailto:contact@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "יצירת קשר",
             "trackingId": "footer_company_contact"
           },
           {
             "href": "mailto:support@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "תמיכה",
             "trackingId": "footer_company_support"
           }
@@ -174,17 +178,17 @@ const footerData = {
         "title": "משפטי",
         "links": [
           {
-            "href": "https://agentanalytics.sh/privacy",
+            "href": "https://agentanalytics.sh/privacy/",
             "label": "פרטיות",
             "trackingId": "footer_legal_privacy"
           },
           {
-            "href": "https://agentanalytics.sh/terms",
+            "href": "https://agentanalytics.sh/terms/",
             "label": "תנאים",
             "trackingId": "footer_legal_terms"
           },
           {
-            "href": "https://agentanalytics.sh/dpa",
+            "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
           }
@@ -238,11 +242,13 @@ const footerData = {
           },
           {
             "href": "mailto:contact@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "联系我们",
             "trackingId": "footer_company_contact"
           },
           {
             "href": "mailto:support@agentanalytics.sh",
+            "preventEmailObfuscation": true,
             "label": "支持",
             "trackingId": "footer_company_support"
           }
@@ -252,17 +258,17 @@ const footerData = {
         "title": "法律",
         "links": [
           {
-            "href": "https://agentanalytics.sh/privacy",
+            "href": "https://agentanalytics.sh/privacy/",
             "label": "隐私",
             "trackingId": "footer_legal_privacy"
           },
           {
-            "href": "https://agentanalytics.sh/terms",
+            "href": "https://agentanalytics.sh/terms/",
             "label": "条款",
             "trackingId": "footer_legal_terms"
           },
           {
-            "href": "https://agentanalytics.sh/dpa",
+            "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
           }
