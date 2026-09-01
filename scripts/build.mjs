@@ -289,6 +289,16 @@ const astroFooter = `---\nconst footerData = ${JSON.stringify(
   2
 )};\nconst locale = Astro.props.locale ?? 'en';\nconst footer = footerData[locale] ?? footerData.en;\n---\n\n<footer class="aa-footer" data-aa-impression="footer">\n  <div class="aa-footer__inner">\n    <div class="aa-footer__grid">\n      <div class="aa-footer__brand">\n        <div class="aa-footer__mark">\n          <img src={footer.logoSrc} alt={footer.logoAlt} width={footer.logoWidth} height={footer.logoHeight} />\n        </div>\n        <div class="aa-footer__brand-copy">\n          <h2 class="aa-footer__title">{footer.title}</h2>\n          <p class="aa-footer__description">{footer.description}</p>\n          <p class="aa-footer__copy">{footer.copy}</p>\n        </div>\n      </div>\n      <nav class="aa-footer__sections" aria-label="Footer">\n        {footer.sections.map((section) => (\n          <section class="aa-footer__section">\n            <h3 class="aa-footer__heading">{section.title}</h3>\n            <div class="aa-footer__list">\n              {section.links.map((link) => (\n                <a href={link.href} class="aa-footer__link" target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} onclick={link.trackingId ? \`window.aa?.track('cta_click',{id:'\${link.trackingId}'})\` : undefined}>{link.label}</a>\n              ))}\n            </div>\n          </section>\n        ))}\n      </nav>\n    </div>\n  </div>\n</footer>\n`;
 
+const astroFooterWithEmailProtection = astroFooter
+  .replace(
+    '<footer class="aa-footer" data-aa-impression="footer">',
+    '<!--email_off-->\n<footer class="aa-footer" data-aa-impression="footer">'
+  )
+  .replace(
+    '</footer>\n',
+    '</footer>\n<!--/email_off-->\n'
+  );
+
 const eleventyHeader = `{% set aaHeaderData = ${JSON.stringify(
   headerByLocale,
   null,
@@ -307,6 +317,16 @@ const eleventyFooter = `{% set aaFooterData = ${JSON.stringify(
   2
 )} %}\n{% set aaFooter = aaFooterData[locale or 'en'] or aaFooterData.en %}\n<footer class="aa-footer" data-aa-impression="footer">\n  <div class="aa-footer__inner">\n    <div class="aa-footer__grid">\n      <div class="aa-footer__brand">\n        <div class="aa-footer__mark">\n          <img src="{{ aaFooter.logoSrc }}" alt="{{ aaFooter.logoAlt }}" width="{{ aaFooter.logoWidth }}" height="{{ aaFooter.logoHeight }}">\n        </div>\n        <div class="aa-footer__brand-copy">\n          <h2 class="aa-footer__title">{{ aaFooter.title }}</h2>\n          <p class="aa-footer__description">{{ aaFooter.description }}</p>\n          <p class="aa-footer__copy">{{ aaFooter.copy }}</p>\n        </div>\n      </div>\n      <nav class="aa-footer__sections" aria-label="Footer">\n        {% for section in aaFooter.sections %}\n        <section class="aa-footer__section">\n          <h3 class="aa-footer__heading">{{ section.title }}</h3>\n          <div class="aa-footer__list">\n            {% for link in section.links %}\n            <a href="{{ link.href }}" class="aa-footer__link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>\n            {% endfor %}\n          </div>\n        </section>\n        {% endfor %}\n      </nav>\n    </div>\n  </div>\n</footer>\n`;
 
+const eleventyFooterWithEmailProtection = eleventyFooter
+  .replace(
+    '            <a href="{{ link.href }}"',
+    '            {% if link.preventEmailObfuscation %}<!--email_off-->{% endif %}<a href="{{ link.href }}"'
+  )
+  .replace(
+    '>{{ link.label }}</a>\n            {% endfor %}',
+    '>{{ link.label }}</a>{% if link.preventEmailObfuscation %}<!--/email_off-->{% endif %}\n            {% endfor %}'
+  );
+
 await mkdir(distDir, { recursive: true });
 await mkdir(path.join(distDir, 'astro'), { recursive: true });
 await mkdir(path.join(distDir, 'eleventy'), { recursive: true });
@@ -318,7 +338,7 @@ await writeFile(path.join(distDir, 'index.js'), indexJs);
 await writeFile(path.join(distDir, 'locales.js'), localesJs);
 await writeFile(path.join(distDir, 'header.js'), headerJs);
 await writeFile(path.join(distDir, 'footer.js'), footerJs);
-await writeFile(path.join(distDir, 'astro', 'Footer.astro'), astroFooter);
+await writeFile(path.join(distDir, 'astro', 'Footer.astro'), astroFooterWithEmailProtection);
 await writeFile(path.join(distDir, 'eleventy', 'header.njk'), eleventyHeader);
 await writeFile(path.join(distDir, 'eleventy', 'content-ticker.njk'), eleventyContentTicker);
-await writeFile(path.join(distDir, 'eleventy', 'footer.njk'), eleventyFooter);
+await writeFile(path.join(distDir, 'eleventy', 'footer.njk'), eleventyFooterWithEmailProtection);

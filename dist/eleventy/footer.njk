@@ -295,7 +295,7 @@
           <h3 class="aa-footer__heading">{{ section.title }}</h3>
           <div class="aa-footer__list">
             {% for link in section.links %}
-            <a href="{{ link.href }}" class="aa-footer__link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>
+            {% if link.preventEmailObfuscation %}<!--email_off-->{% endif %}<a href="{{ link.href }}" class="aa-footer__link"{% if link.external %} target="_blank" rel="noopener noreferrer"{% endif %}{% if link.trackingId %} onclick="window.aa?.track('cta_click',{id:'{{ link.trackingId }}'})"{% endif %}>{{ link.label }}</a>{% if link.preventEmailObfuscation %}<!--/email_off-->{% endif %}
             {% endfor %}
           </div>
         </section>
