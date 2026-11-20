@@ -111,6 +111,11 @@ const footerData = {
             "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
+          },
+          {
+            "href": "https://agentanalytics.sh/refunds/",
+            "label": "Refunds",
+            "trackingId": "footer_legal_refunds"
           }
         ]
       }
@@ -191,6 +196,11 @@ const footerData = {
             "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
+          },
+          {
+            "href": "https://agentanalytics.sh/refunds/",
+            "label": "החזרים",
+            "trackingId": "footer_legal_refunds"
           }
         ]
       }
@@ -271,6 +281,11 @@ const footerData = {
             "href": "https://agentanalytics.sh/dpa/",
             "label": "DPA",
             "trackingId": "footer_legal_dpa"
+          },
+          {
+            "href": "https://agentanalytics.sh/refunds/",
+            "label": "退款",
+            "trackingId": "footer_legal_refunds"
           }
         ]
       }

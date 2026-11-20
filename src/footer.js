@@ -18,6 +18,7 @@ const footerContentByLocale = {
     privacy: 'Privacy',
     terms: 'Terms',
     dpa: 'DPA',
+    refunds: 'Refunds',
   },
   he: {
     title: 'Agent Analytics',
@@ -36,6 +37,7 @@ const footerContentByLocale = {
     privacy: 'פרטיות',
     terms: 'תנאים',
     dpa: 'DPA',
+    refunds: 'החזרים',
   },
   zh: {
     title: 'Agent Analytics',
@@ -54,6 +56,7 @@ const footerContentByLocale = {
     privacy: '隐私',
     terms: '条款',
     dpa: 'DPA',
+    refunds: '退款',
   },
 };
 
@@ -167,6 +170,11 @@ export function getFooter(locale = DEFAULT_LOCALE) {
           href: 'https://agentanalytics.sh/dpa/',
           label: current.dpa,
           trackingId: 'footer_legal_dpa',
+        },
+        {
+          href: 'https://agentanalytics.sh/refunds/',
+          label: current.refunds,
+          trackingId: 'footer_legal_refunds',
         },
       ],
     },
